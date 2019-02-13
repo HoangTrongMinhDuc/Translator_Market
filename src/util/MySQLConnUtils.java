@@ -1,7 +1,10 @@
 package util;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
 public class MySQLConnUtils {
 	public static Connection getMySQLConnection()
 	        throws ClassNotFoundException, SQLException {
@@ -19,6 +22,32 @@ public class MySQLConnUtils {
 	    String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName+"?setUnicode=true&characterEncoding=UTF-8";
 	    Connection conn = DriverManager.getConnection(connectionURL, userName,
 	            password);
+	    System.out.println("Connected...");
 	    return conn;
+	}
+	
+	public static void main(String[] args) {
+		String sql = "Select * from ngonngu";
+		
+		try {
+			Connection connection = getMySQLConnection();
+			
+			Statement st = (Statement) connection.createStatement();
+			
+			ResultSet rs = ((java.sql.Statement) st).executeQuery(sql);
+			
+			while(rs.next())
+			{
+				String country = rs.getString("TenNgonNgu");
+				System.out.println(country);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
