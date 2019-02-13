@@ -26,28 +26,4 @@ public class MySQLConnUtils {
 	    return conn;
 	}
 	
-	public static void main(String[] args) {
-		String sql = "Select * from ngonngu";
-		
-		try {
-			Connection connection = getMySQLConnection();
-			
-			Statement st = (Statement) connection.createStatement();
-			
-			ResultSet rs = ((java.sql.Statement) st).executeQuery(sql);
-			
-			while(rs.next())
-			{
-				String country = rs.getString("TenNgonNgu");
-				System.out.println(country);
-			}
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
 }
