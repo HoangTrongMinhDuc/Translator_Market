@@ -19,6 +19,20 @@ public class MySQLConnUtils {
 	    String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName+"?setUnicode=true&characterEncoding=UTF-8";
 	    Connection conn = DriverManager.getConnection(connectionURL, userName,
 	            password);
+	    System.out.println("connect success");
 	    return conn;
 	}
+	public static void main(String[] args) {
+		MySQLConnUtils mySQLConnUtils = new MySQLConnUtils();
+		try {
+			mySQLConnUtils.getMySQLConnection();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }
