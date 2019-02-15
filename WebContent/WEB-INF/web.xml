@@ -9,4 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+		<servlet-name>PostController</servlet-name>
+		<servlet-class>Controller.PostController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostController</servlet-name>
+		<url-pattern>/newpost</url-pattern>
+	</servlet-mapping>
 </web-app>

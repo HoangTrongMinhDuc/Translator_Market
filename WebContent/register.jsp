@@ -25,7 +25,19 @@
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
 </head>
-
+<%if(request.getAttribute("responseId") != null){ %>
+	<%int resId = (int)request.getAttribute("responseId"); %>
+	<%if(resId == 1){ %>
+	<div class="alert alert-warning" role="alert">
+			Your password not matches!
+	</div>
+	<%} %>
+	<%if(resId == 2){ %>
+	<div class="alert alert-warning" role="alert">
+			Your username had exist!
+	</div>
+	<%} %>
+<%} %>
 <body>
     <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
         <div class="wrapper wrapper--w680">

@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
@@ -17,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.BO.TaiKhoanBO;
+import Model.DAO.TaiKhoanDAO;
 import util.MySQLConnUtils;
 
 @WebServlet("/register")
@@ -38,7 +37,21 @@ public class RegisterController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String username = req.getParameter("username").toString();
+		TaiKhoanBO taiKhoanBO = new TaiKhoanBO();
+		if(taiKhoanBO.isExist(username)) {
+			req.setAttribute("responseId", 2);
+			RequestDispatcher des = req.getRequestDispatcher("register.jsp");
+			des.forward(req, resp);
+			return;
+		}
 		String password = req.getParameter("password").toString();
+		String repassword = req.getParameter("repassword").toString();
+		if(!password.equals(repassword)) {
+			req.setAttribute("responseId", 1);
+			RequestDispatcher des = req.getRequestDispatcher("register.jsp");
+			des.forward(req, resp);
+			return;
+		}
 		String name = req.getParameter("name").toString();
 		String birth = req.getParameter("birthday").toString();
 		String gender = req.getParameter("gender").toString();
