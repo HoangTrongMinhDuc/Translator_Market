@@ -38,10 +38,10 @@
                             <input class="input--style-1" type="text" placeholder="USERNAME" name="username" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="password" placeholder="PASSWORD" name="password" required>
+                            <input class="input--style-1" type="password" placeholder="PASSWORD" name="password"  id="password" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="password" placeholder="REPASSWORD" name="repassword" required>
+                            <input class="input--style-1" type="password" placeholder="REPASSWORD" name="repassword"  id="repassword" required>
                         </div>
                         <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="NAME" name="name" required>
