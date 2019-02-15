@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title>Register new account</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -33,34 +33,33 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Registration Info</h2>
-                    <form method="POST">
+                    <form method="POST" action="register">
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="USERNAME" name="username">
+                            <input class="input--style-1" type="text" placeholder="USERNAME" name="username" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="password" placeholder="PASSWORD" name="password">
+                            <input class="input--style-1" type="password" placeholder="PASSWORD" name="password" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="password" placeholder="REPASSWORD" name="repassword">
+                            <input class="input--style-1" type="password" placeholder="REPASSWORD" name="repassword" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="NAME" name="name">
+                            <input class="input--style-1" type="text" placeholder="NAME" name="name" required>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" type="text" placeholder="BIRTHDATE" name="birthday">
+                                    <input class="input--style-1 js-datepicker" type="text" placeholder="BIRTHDATE" name="birthday" required>
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender">
+                                        <select name="gender" required>
                                             <option disabled="disabled" selected="selected">GENDER</option>
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                            <option>Other</option>
+                                            <option value="1">Male</option>
+                                            <option value="0">Female</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -69,10 +68,10 @@
                         </div>
                         <div class="input-group">
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="class">
+                                <select name="role" required>
                                     <option disabled="disabled" selected="selected">ROLE</option>
-                                    <option>Translator</option>
-                                    <option>Custommer</option>
+                                    <option value="3">Translator</option>
+                                    <option value="4">Customer</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>
